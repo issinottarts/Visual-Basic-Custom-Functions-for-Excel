@@ -1,0 +1,22 @@
+Function CountColorCells(CountRange As Range, CountColor As Range) As Long
+    Dim CountColorValue As Long
+    Dim TotalCount As Long
+    Dim rngCell As Range
+    
+    ' Get the color value of the CountColor cell
+    CountColorValue = CountColor.Interior.Color
+    
+    ' Initialize the total count
+    TotalCount = 0
+    
+    ' Loop through each cell in the CountRange
+    For Each rngCell In CountRange
+        ' Check if the cell has the same background color as CountColor
+        If rngCell.Interior.Color = CountColorValue Then
+            TotalCount = TotalCount + 1
+        End If
+    Next rngCell
+    
+    ' Return the total count
+    CountColorCells = TotalCount
+End Function
